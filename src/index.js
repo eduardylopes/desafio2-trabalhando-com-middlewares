@@ -27,7 +27,7 @@ function checksCreateTodosUserAvailability(request, response, next) {
   const { user } = request;
 
   if (!user.pro && user.todos.length >= 10) {
-    return response.status(400).json({ error: "Limit of todos reached!" });
+    return response.status(403).json({ error: "Limit of todos reached!" });
   } else {
     next();
   }
